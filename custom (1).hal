@@ -1,0 +1,14 @@
+# --- Extruder Axis (E) Simulation ---
+
+loadrt stepgen count=1
+addf stepgen.make-pulses servo-thread
+addf stepgen.capture-position servo-thread
+addf stepgen.update-freq servo-thread
+
+setp stepgen.0.position-scale 100
+setp stepgen.0.maxvel 2
+setp stepgen.0.maxaccel 20
+
+net e-pos-cmd axis.3.motor-pos-cmd => stepgen.0.position-cmd
+net e-pos-fb stepgen.0.position-fb => axis.3.motor-pos-fb
+net e-enable axis.3.amp-enable-out => stepgen.0.enable
