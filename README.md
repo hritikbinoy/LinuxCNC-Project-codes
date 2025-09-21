@@ -20,6 +20,7 @@ HOW TO RUN
 1. Install dependencies
 
 sudo apt update
+
 sudo apt install linuxcnc-uspace python3-pyqt5
 
 
